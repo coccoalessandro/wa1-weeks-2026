@@ -16,6 +16,41 @@ Develop a small JS program to manage the list of users in a website.
   - Extra: in alphabetical order of acronym.
 */
 
+// a)
 const names = "Luigi De Russis, Francesca Russo, Fulvio Corno, Luca Scibetta, Alberto Monge Roffarello" ;
 
+
+// b)
+const list_names = names.split(",")
+
+for (let i = 0; i < list_names.length; i++) {
+  list_names[i] = list_names[i].trim()
+} 
+
+/* an alternative 
+
+const list_2 = []
+
+for (const name of list_names) {
+  list_2.push(name.trim())
+}
+
+*/
+
+console.log(list_names)
 console.log(names)
+
+//c)
+
+const acr_list = []
+
+for (const name of list_names) {
+  const names = name.split(" ")
+  let acr = ""
+  for (const n of names) {
+    acr += n[0]
+  }
+  acr_list.push(acr)
+}
+
+console.log(acr_list.sort())

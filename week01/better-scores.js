@@ -16,7 +16,62 @@ Develop a small JavaScript program to manage the scores given to your user on we
 */
 
 
-let scores = [3, -2, 10, 0, -5, 7, 4, -1, 9, 6] ;
+const scores = [3, -2, 10, 0, -5, -8,  7, 4, -1, 9, 6] ;
 
 console.log(scores)
 
+/*
+const newscores = [...scores] // make a copy of scores
+
+for (let i = 0; i < newscores.length; i++) {
+  const value = newscores[i]
+  if (value < 0 ) {
+    newscores.splice(i, 1);
+  }
+}
+
+this method works only if we do not have 2 conscutive negative numbers 
+(it's usually better to create new structures, not to modify existing ones)
+*/
+
+// a)
+const newscores = []
+
+for (const value of scores) {
+  if (value >= 0) {
+    newscores.push(value)
+  }
+}
+
+console.log(newscores)
+
+// b)
+
+for (const c of [1, 2]) {
+  const smallest = Math.min(...newscores)
+  const pos_smallest = newscores.indexOf(smallest)
+  //console.log("Smallest", smallest, "at position", pos_smalles)
+  console.log(`The smallest value is ${smallest} and it is at position ${pos_smallest}`)
+  newscores.splice(pos_smallest, 1)
+}
+
+console.log(newscores)
+
+
+// c)
+
+let avg = 0.0;
+for (const value of newscores) {
+  avg += value
+}
+avg /= newscores.length
+avg = Math.round(avg)
+
+console.log("Avg value", avg)
+
+while (scores.length > newscores.length) {
+  newscores.push(avg)
+}
+
+console.log(scores)
+console.log(newscores)
