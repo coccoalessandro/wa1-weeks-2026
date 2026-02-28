@@ -6,10 +6,12 @@
 
 /* let, const */
 
-let a = 1 ;
-const b = 2 ;
-let c = true ;
+let a = 7
 
+const msg = 'hello'
+
+a = a + 1
+msg = 'hi'
 
 // EXPRESSIONS: OPERATORS and ASSIGNMENTS
 
