@@ -2,7 +2,7 @@
 
 // CLOSURES
 
-function distance_sign(metric = True) {
+function distance_sign(metric = true) {
     let conversion = 1.0
     let unit = "km"
     if (metric == false) {
