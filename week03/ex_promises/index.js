@@ -16,7 +16,7 @@ function getUserNames() {
         db.all(sql, (err, rows) => {
             if (err) {
                 reject(err)
-            }else {
+            } else {
                 const result = rows.map(row => row.name)
                 resolve(result)
             }
@@ -30,7 +30,7 @@ function getEmailByUserName(userName) {
         db.get(sql, [userName], (err, row) => {
             if (err) {
                 reject(err)
-            }else {
+            } else {
                 // single row or no rows at all
                 if (row) {
                     resolve(row.email)
@@ -89,6 +89,7 @@ async function getAllEmails2() {
 console.log("try this")
 const result = await getAllEmails2() // if I don't use await, it gives me a Promise as a result, not the 'content' of it
 console.log(result)
+getAllEmails2().then(result => console.log(result))
 
 // the following two functions are equivalent --> both return a promise
 
